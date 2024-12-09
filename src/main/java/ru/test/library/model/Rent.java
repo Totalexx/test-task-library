@@ -1,27 +1,26 @@
 package ru.test.library.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @Table(name = "book_rents")
 @Getter
 @Setter
-public class BookRent {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Rent extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private UUID id;
-
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "book_id")
     private Book book;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "renter_id")
     private Client renter;
 

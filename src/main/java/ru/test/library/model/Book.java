@@ -1,20 +1,21 @@
 package ru.test.library.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.UUID;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "books")
 @Setter
 @Getter
-public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private UUID id;
+@NoArgsConstructor
+@AllArgsConstructor
+public class Book extends AbstractEntity {
 
     @Column
     private String title;
